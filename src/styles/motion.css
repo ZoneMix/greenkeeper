@@ -1,0 +1,30 @@
+/* Motion is decoration over a finished page: one quiet rise on load, short colour
+   transitions, nothing that loops. prefers-reduced-motion turns all of it off. */
+
+.rise { animation: rise 0.6s var(--ease-out) both; }
+.rise-1 { animation-delay: 0.06s; }
+.rise-2 { animation-delay: 0.12s; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+
+dialog.sheet[open] { animation: sheet-in 0.25s var(--ease-out); }
+@keyframes sheet-in { from { opacity: 0; transform: translateY(8px); } }
+
+[data-spotlight] { position: relative; isolation: isolate; }
+@media (hover: hover) and (pointer: fine) {
+  [data-spotlight]::before {
+    content: ""; position: absolute; inset: -6rem; z-index: -1; pointer-events: none;
+    background: radial-gradient(circle 12rem at 50% 30%, var(--glow), transparent);
+    opacity: 0; transition: opacity 0.6s ease;
+  }
+  [data-spotlight]:hover::before { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

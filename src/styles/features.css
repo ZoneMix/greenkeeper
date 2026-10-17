@@ -1,0 +1,67 @@
+/* Page-specific pieces: weather strip, calendar grid, deck chart, safety badges. */
+
+/* weather */
+.weather-now { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; border-radius: var(--radius-lg); background: var(--surface-warm); }
+.weather-now > .ico { color: var(--accent); }
+.weather-now .temp { font-size: 2.75rem; line-height: 1; font-weight: 600; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.forecast { list-style: none; margin: 0; padding: 0 0 0.25rem; display: grid; grid-template-columns: repeat(7, minmax(4.75rem, 1fr)); gap: 0.5rem; overflow-x: auto; scrollbar-width: thin; }
+.forecast li { display: grid; gap: 0.3rem; justify-items: start; padding: 0.75rem 0.8rem; border: 2px solid transparent; border-radius: var(--radius); background: var(--surface); min-width: 4.75rem; }
+/* Today: an ink outline and the word "Today", not a colour change. */
+.forecast li[aria-current="date"] { border-color: var(--fg); background: var(--bg); }
+.forecast .hi { font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* calendar */
+.month-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.month-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.35rem; }
+.month-grid .dow { padding: 0.4rem 0.35rem; font: 500 0.8125rem/1 var(--sans); color: var(--muted); text-align: left; }
+.day {
+  position: relative; display: grid; align-content: start; gap: 0.25rem; min-height: 4.5rem; padding: 0.45rem;
+  text-align: left; border: 1px solid transparent; border-radius: var(--radius-sm); background: var(--surface); cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.day:hover { border-color: var(--line-strong); background: var(--surface-2); }
+.day[aria-pressed="true"] { border-color: var(--fg); box-shadow: inset 0 0 0 1px var(--fg); }
+.day.is-today { background: var(--surface-warm); }
+.day.is-today .day-num { font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.day.is-outside { opacity: 0.55; }
+.day.has-overdue { border: 2px dashed var(--attention); }
+.day.has-overdue[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--fg); }
+.day-num { font: 500 0.875rem/1 var(--sans); font-variant-numeric: tabular-nums; }
+.day-marks { display: flex; flex-wrap: wrap; gap: 0.2rem; align-items: center; color: var(--muted); font: 500 0.75rem/1 var(--sans); font-variant-numeric: tabular-nums; }
+.day-marks .ico { width: 0.8rem; height: 0.8rem; }
+.day-marks .is-attention { color: var(--attention); }
+.day-marks .is-good { color: var(--accent); }
+.day-blank { min-height: 4.5rem; }
+@media (max-width: 640px) {
+  .month-grid { gap: 0.25rem; }
+  .day, .day-blank { min-height: 3.25rem; padding: 0.3rem; }
+  .day-marks .label { display: none; }
+}
+.legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-top: 0.75rem; }
+.legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.filters { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip {
+  display: inline-flex; align-items: center; gap: 0.35rem; min-height: 2.25rem; padding: 0 0.9rem;
+  border: 1px solid var(--line-strong); border-radius: var(--radius-pill); background: var(--bg); cursor: pointer;
+  font-size: 0.9375rem; color: var(--muted); transition: background-color 0.2s, color 0.2s;
+}
+.chip:hover { color: var(--fg); background: var(--surface-2); }
+.chip[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 600; }
+.chip[aria-pressed="true"]::before { content: "✓"; font-size: 0.8em; }
+@media (pointer: coarse) { .chip { min-height: var(--tap); } }
+
+/* mower deck chart: use is spelled out, colour is only an accent */
+.deck { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.4rem; }
+.deck li { display: grid; gap: 0.2rem; padding: 0.55rem 0.4rem; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--bg); text-align: center; }
+.deck .pos { font: 600 1.125rem/1 var(--sans); font-variant-numeric: tabular-nums; }
+.deck .use { font: 400 0.75rem/1.2 var(--sans); color: var(--muted); }
+.deck li.is-regular { border-color: var(--accent); border-width: 2px; background: var(--accent-tint); }
+.deck li.is-avoid { border-style: dashed; border-color: var(--edge); }
+@media (max-width: 640px) { .deck { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* shopping progress + quantity editor */
+.qty { display: inline-flex; align-items: center; gap: 0.35rem; }
+.qty input { width: 5rem; min-height: 2.25rem; padding: 0.3rem 0.65rem; border: 1px solid var(--edge); border-radius: var(--radius); background: var(--bg); text-align: right; font-variant-numeric: tabular-nums; }
+.check { display: inline-flex; align-items: center; gap: 0.6rem; cursor: pointer; min-height: var(--tap); }
+.check input { width: 1.25rem; height: 1.25rem; accent-color: var(--accent); }
+.is-purchased .row-title { text-decoration: line-through; text-decoration-thickness: 1px; }

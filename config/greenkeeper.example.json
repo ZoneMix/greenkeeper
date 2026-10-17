@@ -1,0 +1,17 @@
+{
+  "$comment": "Example yard. Copy to config/greenkeeper.config.json (gitignored) and set your own values.",
+  "location": {
+    "city": "Fargo",
+    "state": "ND",
+    "usda_zone": "4b",
+    "latitude": 46.8772,
+    "longitude": -96.7898,
+    "timezone": "America/Chicago"
+  },
+  "season": { "startMonth": 4, "startDay": 1, "endMonth": 11, "endDay": 10 },
+  "yard": { "total_sqft": 8000, "front_sqft": 3000, "back_sqft": 5000, "shade_percentage": 30 },
+  "equipment": { "mower_brand": "other", "mower_model": null, "spreader_model": "scotts-edgeguard-dlx" },
+  "soil_lab": { "name": "your state cooperative extension", "url": null },
+  "extra_products": [],
+  "product_aliases": {}
+}

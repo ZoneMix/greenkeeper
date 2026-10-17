@@ -1,0 +1,76 @@
+/* Greenkeeper tokens, after zonemix.tech: day is paper and ink, night is the
+   "Night Shift" palette. One accent per theme (moss by day, new grass by night) and
+   one attention colour (rust / amber). Colour never carries meaning alone: every
+   state also has an icon, words and, for warnings, a dashed pattern.
+
+   Softer Greenkeeper layer: the same system, warmed for a garden journal. Day paper
+   leans toward linen and soil, night is a warm earthy dusk instead of cool blue-grey,
+   shapes are rounder and surfaces are soft fills with warm shadows rather than rules.
+   This file stays the single source of truth for every value. Contrast ratios below
+   are WCAG 2.x, computed against the named background. */
+
+:root {
+  color-scheme: light;
+  --bg: #f6f0e4;             /* linen paper */
+  --surface: #efe6d6;        /* card fill */
+  --surface-2: #e7dcc8;      /* chips, tracks, pressed wells */
+  --surface-warm: #f0e2cc;   /* oat / clay, surfaces only: --fg 12.2:1, --muted 5.5:1, --accent 5.8:1, --attention 4.8:1 */
+  --line: #e3d8c5;           /* decorative separators only */
+  --line-strong: #cdbda4;    /* decorative outlines only */
+  --edge: #8c7b66;           /* form control boundaries: 3.6:1 on --bg, 3.3:1 on --surface, 3.0:1 on --surface-2 */
+  --fg: #2a231b;             /* soil ink: 13.7:1 on --bg, 12.5:1 on --surface */
+  --fg-soft: #4a4036;        /* 8.2:1 on --surface */
+  --muted: #64574a;          /* 6.2:1 on --bg, 5.7:1 on --surface, 5.2:1 on --surface-2 */
+  --accent: #355f27;         /* moss: 6.6:1 on --bg, 6.0:1 on --surface, 5.5:1 on --surface-2 */
+  --accent-hover: #2a4c1f;   /* --on-accent on it: 8.6:1 */
+  --on-accent: #f6f0e4;      /* 6.6:1 on --accent */
+  --accent-tint: #e5e3d3;    /* good notices/tags: --accent 5.8:1, --muted 5.4:1, --fg 12:1 */
+  --attention: #a4432a;      /* rust: 5.4:1 on --bg, 5.0:1 on --surface */
+  --attention-tint: #efe2d5; /* warning notices/tags: --attention 4.8:1, --muted 5.5:1 */
+  --glow: rgb(53 95 39 / 0.08);
+  --selection: rgb(53 95 39 / 0.18);
+  --backdrop: rgb(42 35 27 / 0.45);
+  --shadow-soft: 0 1px 2px rgb(74 52 30 / 0.05), 0 4px 14px -6px rgb(74 52 30 / 0.14);
+  --shadow-lift: 0 2px 4px rgb(74 52 30 / 0.06), 0 24px 48px -16px rgb(74 52 30 / 0.3);
+
+  --sans: "Bricolage Grotesque Variable", "Bricolage Grotesque", ui-sans-serif, "Avenir Next", "Helvetica Neue", sans-serif;
+  --mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --shell: 72rem;
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+  --rail: minmax(0, 15rem);
+  --radius-sm: 8px;          /* calendar days, deck cells, inline focus */
+  --radius: 12px;            /* inputs, small cards */
+  --radius-lg: 18px;         /* cards, notices, list rows */
+  --radius-xl: 26px;         /* dialogs */
+  --radius-pill: 999px;      /* buttons, tags, segmented controls */
+  --tap: 2.75rem;            /* minimum touch target */
+  --focus-ring: 2px solid var(--accent); /* moss ring: 6.6:1 on --bg, 6.0:1 on --surface */
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root.dark {
+  color-scheme: dark;
+  --bg: #1a1511;             /* dusk soil */
+  --surface: #231d17;
+  --surface-2: #2d251e;
+  --surface-warm: #2f2519;   /* peat, surfaces only: --fg 12.4:1, --muted 6.3:1, --accent 9.2:1, --attention 8.5:1 */
+  --line: #342b23;
+  --line-strong: #4a3e33;
+  --edge: #7e6e5b;           /* form control boundaries: 3.7:1 on --bg, 3.4:1 on --surface, 3.1:1 on --surface-2 */
+  --fg: #f1e8da;             /* cream: 14.9:1 on --bg, 13.7:1 on --surface */
+  --fg-soft: #d9ccba;        /* 10.6:1 on --surface */
+  --muted: #b5a690;          /* 7.6:1 on --bg, 7.0:1 on --surface, 6.3:1 on --surface-2 */
+  --accent: #a6d98a;         /* new grass: 11.1:1 on --bg, 10.3:1 on --surface */
+  --accent-hover: #bde5a6;   /* --on-accent on it: 12.9:1 */
+  --on-accent: #1a1511;      /* 11.1:1 on --accent */
+  --accent-tint: #27271c;    /* --accent 9.3:1, --muted 6.3:1, --fg 12.4:1 */
+  --attention: #ffb547;      /* amber: 10.3:1 on --bg, 9.5:1 on --surface */
+  --attention-tint: #2c2215; /* --attention 8.9:1, --muted 6.6:1 */
+  --glow: rgb(166 217 138 / 0.06);
+  --selection: rgb(166 217 138 / 0.2);
+  --backdrop: rgb(10 7 4 / 0.6);
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.25), 0 6px 18px -8px rgb(0 0 0 / 0.45);
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.3), 0 28px 56px -16px rgb(0 0 0 / 0.65);
+}
