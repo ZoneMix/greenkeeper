@@ -4,6 +4,17 @@ An organic lawn care planner for one yard (the bundled season template is tuned 
 season's tasks on a calendar, tracks what is on the shelf, builds the shopping list from
 upcoming work, and reads the local forecast to say whether a task's day looks good.
 
+![The Today page: an overdue task, the next two tasks, and season progress](docs/screenshots/today.png)
+
+| | |
+|:-:|:-:|
+| ![October on the calendar in the night theme, with one late task marked by a dashed border](docs/screenshots/calendar-dark.png) | ![The shopping list with a suggested lime purchase sized to the lawn](docs/screenshots/shopping.png) |
+| Calendar (night theme) | Shopping list built from the schedule |
+| ![Inventory grouped into supplies and equipment](docs/screenshots/inventory.png) | ![The Today page on a phone](docs/screenshots/mobile.png) |
+| Inventory | On a phone |
+
+Screenshots use the bundled example yard with sample tasks and stock.
+
 House rules the app enforces:
 
 - **Organic and kid/pet-safe only.** New products must be both; nothing else is ever
